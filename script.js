@@ -5,13 +5,15 @@ const formSubmission = require("./scriptHelper");
 window.addEventListener("load", () => {
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    let listedPlanetsResponse;
+    let listedPlanetsResponse = formSubmission.myFetch;
     listedPlanetsResponse.then(function (result) {
         listedPlanets = result;
         console.log(listedPlanets);
     }).then(function () {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+        let selected = formSubmission.pickPlanet(listedPlanets);
+        formSubmission.addDestinationInfo(document, selected.name, selected.diameter, selected.star, selected.distance, selected.moons, selected.imageUrl);
     });
 
     let form = document.querySelector('form');
