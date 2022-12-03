@@ -73,9 +73,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 async function myFetch() {
 
-    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-        if (response.status >- 400) {
-            throw new Error ("Planets not fetched properly");
+    let planetsReturned = fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+        if (response.status >= 400) {
+            throw Error("Response Failed.");
         } else {
             return response.json();
         }
