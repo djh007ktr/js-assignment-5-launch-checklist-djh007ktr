@@ -48,22 +48,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             fuelStatus.innerHTML = 'Fuel level too low for launch.';
             cargoStatus.innerHTML = 'Cargo mass low enough for launch';
             launchStatus.innerHTML = 'Shuttle not ready for launch';
-            launchStatus.style.color = red;
+            launchStatus.style.color = 'red';
         } else if (fuelLevel > 10000 || cargoLevel > 10000) {
             fuelStatus.innerHTML = 'Fuel level high enough for launch.';
             cargoStatus.innerHTML = 'Cargo mass too high for launch';
             launchStatus.innerHTML = 'Shuttle not ready for launch';
-            launchStatus.style.color = red;
+            launchStatus.style.color = 'red';
         } else if (fuelLevel < 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = 'Fuel level too low for launch.';
             cargoStatus.innerHTML = 'Cargo mass too high for launch';
             launchStatus.innerHTML = 'Shuttle not ready for launch';
-            launchStatus.style.color = red;
+            launchStatus.style.color = 'red';
         } else {
             fuelStatus.innerHTML = 'Fuel level high enouugh for launch.';
             cargoStatus.innerHTML = 'Cargo mass low enough for launch';
             launchStatus.innerHTML = 'Shuttle is ready for launch';
-            launchStatus.style.color = green;
+            launchStatus.style.color = 'green';
         }
     }
 
