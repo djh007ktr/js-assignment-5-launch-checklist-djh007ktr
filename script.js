@@ -25,7 +25,7 @@ window.addEventListener("load", function() {
 
         event.preventDefault();
 
-        let pilotInput = document.getElementById('input[id=pilotName]');
+        let pilotInput = document.getElementById('pilotName');
         let pilot = pilotInput.value;
         let copilotInput = document.querySelector('input[name=copilotName]');
         let copilot = copilotInput.value;

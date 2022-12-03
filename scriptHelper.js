@@ -38,10 +38,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     if (validateInput(pilot) === 'Empty' || validateInput(copilot) === 'Empty' || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel) === 'Empty') {
         alert('All fields are required!');
-    } else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number') {
-        alert('Pilot Name and Co-pilot Name require only letters and punctuation!');
-    } else if (validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
-        alert('Fuel Level and Cargo Mass must be only numbers!');
+    } else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number' || validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
+        alert('Please fill in fields with only the appropriate data!');
     } else {
         list.style.visibility = 'visible';
         pilotStatus.innerHTML = `Pilot ${pilot} Ready`;
