@@ -84,10 +84,9 @@ async function myFetch() {
         if (response.status >= 400) {
             throw new Error("Response Failed.");
         } else {
-            return response.json();
+            return planetsReturned = response.json();
         }   
     });
-    return planetsReturned;
 }
 
 function pickPlanet(planets) {
