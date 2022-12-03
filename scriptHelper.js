@@ -44,25 +44,29 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = 'visible';
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML =`Co-pilot ${copilot} is ready for launch`;
+        // When only fuel is too low
         if (fuelLevel < 10000 && cargoLevel < 10000) {
             fuelStatus.innerHTML = 'Fuel level too low for launch';
             cargoStatus.innerHTML = 'Cargo mass low enough for launch';
             launchStatus.innerHTML = 'Shuttle Not Ready for Launch';
             launchStatus.style.color = 'rgb(199, 37, 78)';
+        // When only cargo is too heavy
         } else if (fuelLevel > 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = 'Fuel level high enough for launch';
-            cargoStatus.innerHTML = 'Cargo mass too heavy for launch.';
+            cargoStatus.innerHTML = 'Cargo mass too heavy for launch';
             launchStatus.innerHTML = 'Shuttle Not Ready for Launch';
             launchStatus.style.color = 'rgb(199, 37, 78)';
+        // When both fuel is too low and cargo too heavy
         } else if (fuelLevel < 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = 'Fuel level too low for launch';
-            cargoStatus.innerHTML = 'Cargo mass too heavy for launch.';
+            cargoStatus.innerHTML = 'Cargo mass too heavy for launch';
             launchStatus.innerHTML = 'Shuttle Not Ready for Launch';
             launchStatus.style.color = 'rgb(199, 37, 78)';
+        // When both fuel and cargo are acceptable
         } else {
-            fuelStatus.innerHTML = 'Fuel level high enough for launch.';
+            fuelStatus.innerHTML = 'Fuel level high enough for launch';
             cargoStatus.innerHTML = 'Cargo mass low enough for launch';
-            launchStatus.innerHTML = 'Shuttle is ready for launch';
+            launchStatus.innerHTML = 'Shuttle is Ready for Launch';
             launchStatus.style.color = 'rgb(65, 159, 106)';
         }
     }
@@ -71,9 +75,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 async function myFetch() {
 
-    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+    let planetsReturned;
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
         if (response.status >= 400) {
-            throw Error("Response Failed.");
+            throw new Error("Response Failed.");
         } else {
             return response.json();
         }
