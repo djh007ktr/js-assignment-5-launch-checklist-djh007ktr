@@ -85,7 +85,7 @@ async function myFetch() {
             throw new Error("Response Failed.");
         } else {
             return response.json();
-        }   
+        }
     });
     return planetsReturned;
 }
